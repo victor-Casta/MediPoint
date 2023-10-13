@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Navbar from '../components/Navbar.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="w-full">
 		<header>
-			<Header />
+			<Navbar />
 		</header>
 		<section class="characteristics"></section>
 		<section class="location"></section>
@@ -17,3 +17,12 @@ import Header from '../components/Header.astro';
 </Layout>
 
 
+<style>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	main {
+		@apply w-full;
+	}
+</style>

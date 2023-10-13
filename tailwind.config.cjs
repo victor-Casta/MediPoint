@@ -2,7 +2,15 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				nunito: ['Nunito Sans'],
+			},
+		},
+		colors: {
+			primaryGreen: '#39AF97',
+			textSecondary: '#FFFFFF',
+		},
 	},
 	plugins: [],
 }
