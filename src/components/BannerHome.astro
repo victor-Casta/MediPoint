@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import bannerImage from "../../public/assets/image-1.png"
+---
+
+<div class="bannerHome">
+    <div class="container__BannerHome">
+        <div class="text-content__banner">
+            <h1>Encuentra Atención Médica Cerca de Ti</h1>
+            <p>Bienvenido a MediPoint, la herramienta que te permite descubrir fácilmente los centros de atención médica más cercanos según tu EPS. Ingresa tu información y accede rápidamente a una lista de establecimientos de salud en tu red.</p>
+            <a href="#" class="button-content">
+                <div>
+                    <p>Buscar</p>
+                    <svg width="24" height="24" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#ffffff" d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414Z"/>
+                    </svg>
+                </div>
+            </a>
+        </div>
+        <picture>
+            <Image src={bannerImage} alt="banner image" />
+        </picture>
+    </div>
+</div>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    .bannerHome {
+        @apply w-full flex justify-center bg-backSoft;
+    }
+    .container__BannerHome {
+        @apply w-full max-w-7xl h-fit grid grid-cols-1 sm:grid-cols-2 px-5 py-5;
+    }
+    .text-content__banner {
+        @apply h-full flex flex-col gap-3 justify-center;
+    }
+    .text-content__banner h1 {
+        @apply text-2xl font-extrabold tracking-tight font-nunito;
+    }
+    .text-content__banner .button-content {
+        @apply w-36 h-9 bg-pink rounded-3xl px-3;
+    }
+    .text-content__banner .button-content div {
+        @apply h-full flex gap-3 justify-center items-center;
+    }
+    .text-content__banner .button-content div p {
+        @apply text-white font-bold;
+    }
+    picture {
+        @apply mt-9 sm:m-0 flex justify-end
+    }
+</style>
