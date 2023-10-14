@@ -8,6 +8,7 @@ import usersImage from '../../public/svg/users.svg'
 import securityImage from '../../public/svg/security.svg'
 import LocationHome from '../components/LocationHome.astro';
 import CarouselHome from '../components/CarouselHome.astro';
+import NewsHome from '../components/NewsHome.astro';
 ---
 
 <Layout title="Bienvenido a Medipoint">
@@ -38,7 +39,9 @@ import CarouselHome from '../components/CarouselHome.astro';
 		<section class="carousel-eps">
 			<CarouselHome />
 		</section>
-		<section class="news"></section>
+		<section class="news">
+			<NewsHome />
+		</section>
 		<footer></footer>
 	</main>
 </Layout>
@@ -63,5 +66,8 @@ import CarouselHome from '../components/CarouselHome.astro';
 	}
 	main .carousel-eps {
 		@apply w-full h-fit flex justify-center;
+	}
+	main .news {
+		@apply w-full h-fit my-10 flex justify-center;
 	}
 </style>

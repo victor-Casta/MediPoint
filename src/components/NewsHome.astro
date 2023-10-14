@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import imageOne from "../../public/assets/img-1.png"
+import imageTwo from "../../public/assets/img-2.png"
+import imageThree from "../../public/assets/img-3.png"
+---
+
+<div class="NewsHome">
+    <div class="grid-container">
+        <div class="item__grid">
+            <Image src={imageThree} alt="Three News Item" />
+        </div>
+        <div class="item__grid color-pink">
+            <p>
+                Encuentra fácilmente centros de atención médica en tu área y recibe la atención que mereces
+            </p>
+        </div>
+        <div class="item__grid">
+            <Image src={imageTwo} alt="Second News Item"/>
+        </div>
+        <div class="item__grid color-green">
+            <p>
+                Accede rápidamente a la atención médica que necesitas
+            </p>
+        </div>
+        <div class="item__grid">
+            <Image src={imageOne} alt="First News Item"/>
+        </div>
+        <div class="item__grid color-green">
+            <p>
+                Protege tus datos, con procesos totalmente rapidos y seguros
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    .NewsHome {
+        @apply h-fit max-w-7xl;
+    }
+    .NewsHome .grid-container {
+        @apply grid gap-1 grid-cols-1 grid-rows-6 md:grid-cols-2 md:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2;
+    }
+    .NewsHome .grid-container .item__grid {
+        @apply w-[350px] h-[350px] px-6 rounded-xl flex justify-center items-center;
+    }
+    .NewsHome .grid-container .item__grid p {
+        @apply w-full text-center text-white font-bold text-lg;
+    }
+    .NewsHome .grid-container .color-green {
+        @apply  bg-primaryGreen;
+    }
+    .NewsHome .grid-container .color-pink {
+        @apply  bg-pink;
+    }
+</style>
