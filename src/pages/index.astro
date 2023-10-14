@@ -2,15 +2,32 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import BannerHome from '../components/BannerHome.astro';
+import CardCharacteristics from '../components/CardCharacteristics.astro';
+import locationImage from '../../public/svg/location.svg'
 ---
 
 <Layout title="Bienvenido a Medipoint">
-	<main class="w-full">
+	<main>
 		<header>
 			<Navbar />
 			<BannerHome />
 		</header>
-		<section class="characteristics"></section>
+		<section class="characteristics">
+			<div class="card-container">
+				<CardCharacteristics picture={locationImage} 
+					title="Ubicación Rápida de Atención Médica:" 
+					description="Encuentra fácil y rápidamente centros de atención médica cercanos a tu EPS." 
+				/>
+				<CardCharacteristics picture={locationImage} 
+					title="Experiencia de Usuario Optimizada en Salud:" 
+					description="Una plataforma intuitiva y eficaz que simplifica tu búsqueda de atención médica." 
+				/>
+				<CardCharacteristics picture={locationImage} 
+					title="Bienestar y Comodidad Prioritarios:" 
+					description="Cuida tu salud accediendo a atención médica de calidad de manera sencilla y conveniente." 
+				/>
+			</div>
+		</section>
 		<section class="location"></section>
 		<section class="carousel-eps"></section>
 		<section class="news"></section>
@@ -26,5 +43,11 @@ import BannerHome from '../components/BannerHome.astro';
 
 	main {
 		@apply w-full;
+	}
+	main .characteristics {
+		@apply w-full h-fit flex justify-center;
+	}
+	main .card-container {
+		@apply w-full max-w-7xl py-6 px-6 my-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center;
 	}
 </style>

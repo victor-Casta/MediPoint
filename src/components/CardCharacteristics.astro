@@ -1,0 +1,46 @@
+---
+import Image from 'astro/components/Image.astro'
+interface Props  {
+    picture: ImageMetadata,
+    title: String,
+    description: String,
+}
+
+const { title } = Astro.props
+const { description } = Astro.props
+const { picture } = Astro.props
+---
+
+<div class="CardCharacteristics">
+    <div class="card">
+        <picture>
+            <Image src={picture} alt="logo" />
+        </picture>
+        <div class="picture__content">
+            <h2>{title}</h2>
+            <p>{description}</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    @tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+    .CardCharacteristics {
+        @apply w-fit py-2 px-2 my-6;
+    }
+    .CardCharacteristics .card {
+        @apply bg-backSoft w-72 min-w-fit h-60 pt-12 px-2 rounded-3xl relative flex justify-center;
+    }
+    .CardCharacteristics .card picture {
+        @apply bg-primaryGreen w-16 h-16 rounded-full flex justify-center items-center absolute end-[106px] -top-6;
+    }
+    .CardCharacteristics .card .picture__content {
+        @apply mt-4 px-2 flex flex-col items-center text-center;
+    }
+    .CardCharacteristics .card .picture__content h2 {
+        @apply font-extrabold mb-2;
+    }
+</style>
