@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import imageFooter from "../../public/assets/footer-image.png"
+---
+
+<footer>
+    <div class="footer-container">
+        <div class="contact">
+            <h3>Información de Contacto:</h3>
+            <ul>
+                <li>
+                    <a href="#">Teléfono: +1234567890</a>
+                </li>
+                <li>
+                    <a href="#">Correo Electrónico: info@example.com</a>
+                </li>
+            </ul>
+            <h3>Política de Privacidad y Términos de Uso:</h3>
+            <ul>
+                <li>
+                    <a href="#">Política de Privacidad</a>
+                </li>
+                <li>
+                    <a href="#">Términos de Uso</a>
+                </li>
+            </ul>
+        </div>
+        <picture>
+            <Image src={imageFooter} alt="picture footer" />
+        </picture>
+    </div>
+</footer>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    footer {
+        @apply w-full h-fit pt-4 flex justify-center bg-primaryGreen;
+    }
+    footer .footer-container {
+        @apply w-full max-w-7xl grid grid-cols-1 grid-rows-2 sm:grid-cols-2 sm:grid-rows-1;
+    }
+    footer .footer-container .contact {
+        @apply flex flex-col justify-center;
+    }
+    footer .footer-container .contact h3 {
+        @apply text-white font-bold text-lg my-3;
+    }
+    footer .footer-container .contact ul li a {
+        @apply text-white;
+    }
+    footer picture {
+        @apply flex items-end;
+    }
+
+</style>
