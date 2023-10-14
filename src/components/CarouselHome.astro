@@ -1,0 +1,93 @@
+---
+import Image from "astro/components/Image.astro"
+import comfama from "../../public/svg/comfama.svg"
+import famisanar from "../../public/svg/famisanar.svg"
+import neweps from "../../public/svg/neweps.svg"
+import saludtotal from "../../public/svg/saludtotal.svg"
+import sanitas from "../../public/svg/sanitas.svg"
+import savia from "../../public/svg/savia.svg"
+import sura from "../../public/svg/sura.svg"
+---
+
+<div class="CarouselHome">
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide">
+                <Image src={comfama} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={famisanar} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={neweps} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={saludtotal} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={sanitas} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={savia} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={sura} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={comfama} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={famisanar} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={neweps} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={saludtotal} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={sanitas} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={savia} alt="comfama" />
+            </div>
+            <div class="slide">
+                <Image src={sura} alt="comfama" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    .slider {
+        @apply my-10 w-[90vw] sm:w-[75vw] h-fit m-auto overflow-hidden;
+    }
+    .slider .slide-track {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        animation: scroll 40s linear infinite;
+        -webkit-animation: scroll 40s linear infinite;
+        width: calc(200px * 14);
+    }
+    .slider .slide {
+        @apply w-[200px];
+    }
+    .slider .slide img {
+        @apply w-full;
+    }
+    @keyframes scroll {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        100% {
+            -webkit-transform: translateX(calc(-200px * 7));
+            transform: translateX(calc(-200px * 7));
+        }
+    }
+</style>
