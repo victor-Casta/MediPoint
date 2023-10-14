@@ -6,6 +6,7 @@ import CardCharacteristics from '../components/CardCharacteristics.astro';
 import locationImage from '../../public/svg/location.svg'
 import usersImage from '../../public/svg/users.svg'
 import securityImage from '../../public/svg/security.svg'
+import LocationHome from '../components/LocationHome.astro';
 ---
 
 <Layout title="Bienvenido a Medipoint">
@@ -30,7 +31,9 @@ import securityImage from '../../public/svg/security.svg'
 				/>
 			</div>
 		</section>
-		<section class="location"></section>
+		<section class="location">
+			<LocationHome />
+		</section>
 		<section class="carousel-eps"></section>
 		<section class="news"></section>
 		<footer></footer>
@@ -51,5 +54,8 @@ import securityImage from '../../public/svg/security.svg'
 	}
 	main .card-container {
 		@apply w-full max-w-7xl py-6 px-6 my-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center;
+	}
+	main .location {
+		@apply w-full h-fit flex justify-center bg-backSoft;
 	}
 </style>

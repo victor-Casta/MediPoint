@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import locationImage from "../../public/assets/location_image.png"
+---
+
+<div class="LocationHome">
+    <div class="text-container">
+        <h2>Ingresa tu EPS y Encuentra Cercanía en la Salud:</h2>
+        <p>¿Quieres ubicar atención médica rápidamente? Solo tienes que ingresar tu EPS y descubrir la cercanía en la salud. Te presentamos una lista detallada de centros médicos dentro de tu red de salud.</p>
+    </div>
+    <div class="image-container">
+        <Image src={locationImage} alt="location picture" />
+    </div>
+</div>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    .LocationHome {
+        @apply w-full max-w-7xl h-fit pt-6 px-8 grid grid-cols-1 sm:grid-cols-2 grid-rows-2 sm:grid-rows-1 justify-items-center items-center;
+    }
+    .LocationHome .text-container h2 {
+        @apply font-bold text-xl;
+    }
+</style>
