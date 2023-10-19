@@ -29,7 +29,7 @@
         </form>
     </div>
     <div class="picture-container">
-        <img src="../../public/assets/img-4.png" alt="imagepicture">
+        <img src="https://github.com/victor-Casta/MediPoint/blob/main/public/assets/img-4.png?raw=true" alt="new ">
     </div>
 </div>
 
@@ -52,6 +52,7 @@
     }
     .epsSelection .picture-container {
         width: 100%;
+        height: 100%;
         padding: 20px;
         border-radius: 0 20px 20px 0;
         background-color: #BF8092;
