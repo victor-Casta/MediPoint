@@ -1,4 +1,5 @@
 <script>
+    import pictureForm from "../../public/assets/img-4.png"
     let selectedEps = '';
     let selectedService = '';
     const handleSubmit = (event) => {
@@ -29,7 +30,7 @@
         </form>
     </div>
     <div class="picture-container">
-        <img src="/assets/img-4.png" alt="selection eps">
+        <img src={pictureForm.src} alt="selection eps">
     </div>
 </div>
 
