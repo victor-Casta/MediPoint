@@ -29,7 +29,7 @@
         </form>
     </div>
     <div class="picture-container">
-        <img src="https://github.com/victor-Casta/MediPoint/blob/main/public/assets/img-4.png?raw=true" alt="new ">
+        <img src="/assets/img-4.png" alt="selection eps">
     </div>
 </div>
 
