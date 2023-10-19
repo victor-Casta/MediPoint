@@ -18,4 +18,8 @@
     .Map .container__Map {
         width: 90%;
     }
+    .Map .container__Map iframe {
+        box-shadow: 0px 10px 26px 0px rgba(0,0,0,0.3);  
+        border-radius: 10px;
+    }
 </style>
