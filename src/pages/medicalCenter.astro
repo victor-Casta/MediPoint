@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Navbar from "../components/Navbar.astro"
+import Map from "../components/Map.svelte"
+---
+
+<Layout title="Centros medicos" >
+    <header>
+        <Navbar />
+    </header>
+    <main>
+        <section class="main-content">
+            <div class="map-container">
+                <Map />
+            </div>
+            <div class="cards-container"></div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    main {
+        @apply w-full h-[100vh] flex justify-center;
+    }
+    main .main-content {
+        @apply w-full max-w-7xl h-full;
+    }
+</style>
