@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Navbar from "../components/Navbar.astro"
+import EpsData from "../components/EpsData.svelte";
+---
+
+<Layout title="select">
+    <Navbar />
+    <main>
+        <EpsData client:load />
+    </main>
+</Layout>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    main {
+        @apply w-full h-[100vh] bg-backSoft flex justify-center items-center;
+    }
+</style>
