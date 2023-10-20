@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 import Navbar from "../components/Navbar.astro"
 import Map from "../components/Map.svelte"
+import HospitalCard from "../components/HospitalCard.svelte"
 ---
 
 <Layout title="Centros medicos" >
@@ -13,7 +14,25 @@ import Map from "../components/Map.svelte"
             <div class="map-container">
                 <Map />
             </div>
-            <div class="cards-container"></div>
+            <h2>Centros de atención</h2>
+            <div class="cards-container">
+                <div class="cards">
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                    <HospitalCard />
+                </div>
+            </div>
         </section>
     </main>
 </Layout>
@@ -28,5 +47,8 @@ import Map from "../components/Map.svelte"
     }
     main .main-content {
         @apply w-full max-w-7xl h-full;
+    }
+    main .main-content .cards-container .cards {
+        @apply w-full grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))];
     }
 </style>
