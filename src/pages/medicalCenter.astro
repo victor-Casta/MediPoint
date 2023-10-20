@@ -18,19 +18,6 @@ import HospitalCard from "../components/HospitalCard.svelte"
             <div class="cards-container">
                 <div class="cards">
                     <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
-                    <HospitalCard />
                 </div>
             </div>
         </section>
@@ -47,6 +34,9 @@ import HospitalCard from "../components/HospitalCard.svelte"
     }
     main .main-content {
         @apply w-full max-w-7xl h-full;
+    }
+    main .main-content h2 {
+        @apply text-xl font-extrabold mt-8 mb-3;
     }
     main .main-content .cards-container .cards {
         @apply w-full grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))];
