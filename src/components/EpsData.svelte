@@ -1,40 +1,160 @@
 <script>
-    import pictureForm from "../../public/assets/img-4.png"
+    import pictureForm from "../../public/assets/img-4.png";
     let selectedEps = '';
     let selectedService = '';
+    let contentAPI = [];
+    let form;
+    
+
     const handleSubmit = (event) => {
         event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
-        // Aquí puedes realizar acciones con los valores seleccionados (selectedEps, selectedService)
         console.log('EPS seleccionada:', selectedEps);
         console.log('Servicio seleccionado:', selectedService);
+
+        const data = new FormData(form);
+        fetch('http://localhost/MediPoint/backend/api/post.php', {
+            method: 'POST',
+            body: data,
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            contentAPI = data;
+        });
     };
 </script>
 
-<div class="epsSelection">
-    <div class="form-container">
-        <form on:submit={handleSubmit}>
-            <label for="eps">Selecciona tu eps: </label><br />
-            <select id="eps" name="eps" bind:value={selectedEps}>
-                <option value="sura">Sura</option>
-                <option value="comfama">Comfama</option>
-                <option value="sanitas">Sanitas</option>
-                <option value="neweps">Nueva Eps</option>
-            </select><br /><br />
-            <label for="servicio">Selecciona tu servicio: </label><br />
-            <select id="servicio" name="servicio" bind:value={selectedService}>
-                <option value="pediatria">pediátricas</option>
-                <option value="odontologia">odontológicas </option>
-                <option value="adultos">adultos</option>
-        </select><br /><br />
-        <button type="submit">Enviar</button>
-        </form>
+<main>
+    <div class="epsSelection">
+        <div class="form-container">
+            <form on:submit={handleSubmit} bind:this={form}>
+                <label for="eps">Selecciona tu eps: </label><br />
+                <select id="eps" name="eps" bind:value={selectedEps}>
+                    <option value="sura">Sura</option>
+                    <option value="comfama">Comfama</option>
+                    <option value="sanitas">Sanitas</option>
+                    <option value="neweps">Nueva Eps</option>
+                </select><br /><br />
+                <label for="servicio">Selecciona tu servicio:</label><br>
+                <select id="servicio" name="servicio" bind:value={selectedService}>
+                    <option value="pediatria">Pediatría</option>
+                    <option value="odontologia">Odontología</option>
+                    <option value="adultos">Adultos</option>
+                </select><br /><br />
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div class="picture-container">
+            <img src={pictureForm.src} alt="Selección EPS">
+        </div>
     </div>
-    <div class="picture-container">
-        <img src={pictureForm.src} alt="selection eps">
+    
+    <div class="card-content">
+            <!-- Iterar por las respuestas del Fetch -->
+            {#if contentAPI.data && contentAPI.data.length > 0}
+                {#each contentAPI.data as item (item.id)}
+                <div class="card">
+                    <div class="content">
+                    <p class="heading">{item.nombre_centromed}</p>
+                    <p class="para">{item.direccion_centromed}</p>
+                    <p class="para">{item.telefono_centromed}</p>
+                    <p class="para">{item.tiempo_centromed}</p>
+                    <button class="btn">Read more</button>
+                    </div>
+                </div>
+                {/each}
+            {:else}
+                <p>No hay datos disponibles.</p>
+            {/if}
     </div>
-</div>
+</main>
+
+
 
 <style>
+    main .card-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+        justify-items: center;
+    }
+
+    .card {
+        margin: 30px 0;
+        position: relative;
+        display: flex;
+        width: 300px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        padding: 32px;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        color: #BF8092;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .content .heading {
+        font-weight: 900;
+        font-size: 20px;
+    }
+
+    .content .para {
+        line-height: 1.3;
+    }
+
+    .content .btn {
+        color: #191919;
+        text-decoration: none;
+        padding: 10px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+        z-index: -1;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .card:hover::before {
+        width: 100%;
+    }
+
+    .card:hover {
+        box-shadow: none;
+    }
+
+    .card:hover .btn {
+        color: #212121;
+        background: rgb(131, 88, 230)e8e8;
+    }
+
+    .content .btn:hover {
+        outline: 2px solid #e8e8e8;
+        background: transparent;
+        color: #000;
+    }
+
+    .content .btn:active {
+        box-shadow: none;
+    }
+
     .epsSelection {
         max-width: 1024px;
         display: grid;
